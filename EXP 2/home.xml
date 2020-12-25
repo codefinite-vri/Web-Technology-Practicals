@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xslt.xsl"?>
+<!DOCTYPE book SYSTEM "xml.dtd">
+<book>
+  <cd>
+    <title>My Sister's Keeper</title>
+    <author>Jodi Picoult</author>
+    <isbn>978-1444754346</isbn>
+    <publisher>Hodder Paperbacks</publisher>
+    <edition>Dec 2013</edition>
+    <price>391.00</price>
+  </cd>  
+  <cd>
+    <title>A Thousand Splendid Suns</title>
+    <author>Khaled Hosseini</author>
+    <isbn>978-1408844441</isbn>
+    <publisher>Bloomsbury Paperbacks</publisher>
+    <edition>Jan 2013</edition>
+    <price>284.00</price>
+  </cd>  
+  <cd>
+    <title>Beyond Possible: One Soldier, Fourteen Peaks ― My Life In The Death Zone</title>
+    <author>Nimsdai Purja</author>
+    <isbn>978-1529312256</isbn>
+    <publisher>Hodder and Stoughton</publisher>
+    <edition>Nov 2020</edition>
+    <price>523.00</price>
+  </cd>  
+  <cd>
+    <title>The Economics of Small Things Paperback</title>
+    <author>Sudipta Sarangi</author>
+    <isbn>978-0143450375</isbn>
+    <publisher>Penguin</publisher>
+    <edition>Nov 2020</edition>
+    <price>278.07</price>
+  </cd>  
+  <cd>
+    <title>To Kill A Mockingbird</title>
+    <author>Harper Lee</author>
+    <isbn>978-0099549482</isbn>
+    <publisher>Penguin</publisher>
+    <edition>50th Anniversary Edition</edition>
+    <price>310.00</price>
+  </cd>  
+</book>
+

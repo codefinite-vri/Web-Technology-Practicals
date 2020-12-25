@@ -1,0 +1,8 @@
+<!DOCTYPE book [
+   <!ELEMENT cd (title, author, isbn, publisher, edition, price)>
+   <!ELEMENT title (#PCDATA)>
+   <!ELEMENT author (#PCDATA)>
+   <!ELEMENT publisher (#PCDATA)>
+   <!ELEMENT edition (#PCDATA)>
+   <!ELEMENT price (#PCDATA)>
+]>
