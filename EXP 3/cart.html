@@ -1,0 +1,124 @@
+<html>
+<head>
+	<title>Shopping Cart</title>
+	<style>
+		.column33 {
+		  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+		  max-width: 30%;
+		  margin: 0 1vw;
+		  float:left;
+		  text-align: center;
+		  font-family: arial;
+		}
+
+		.price {
+		  color: grey;
+		  font-size: 22px;
+		}
+
+		.column33 button {
+		  border: none;
+		  outline: 0;
+		  padding: 12px;
+		  color: white;
+		  background-color: #000;
+		  text-align: center;
+		  cursor: pointer;
+		  width: 100%;
+		  font-size: 18px;
+		}
+
+		.column33 button:hover {
+		  opacity: 0.7;
+		}
+	</style>
+	<script> 
+         function add1(val, am, i) 
+         { 
+             document.getElementById(val).value+='+1' ;
+             solve(val, am, i);
+             
+         } 
+         function sub1(val, am, i) 
+         { 
+         	 if(document.getElementById(val).value>0){
+	             document.getElementById(val).value+='-1' ;
+	             solve(val, am, i);
+         	}
+         } 
+         function solve(val, am, i) 
+         { 
+             let x=document.getElementById(val).value;
+             let y=eval(x);
+             document.getElementById(val).value=y;
+             document.getElementById(am).value=eval(i*y);
+             document.getElementById('total').value=eval(document.getElementById('ama').value+'+'+document.getElementById('amb').value+'+'+document.getElementById('amc').value);
+         } 
+      </script> 
+	</head>
+<body>
+<div class="container-fluid bg-1 text-center about" style="vertical-align: center;">
+		<center>
+		<div class="row" style="margin: 5vh 0">
+  			<div class="column33">
+			  <img src="book.jpg" alt="Denim Jeans"  width="100" height="100">
+			  <h2>My Sister's Keeper - By Jodi Picoult</h2>
+			  <p class="price" id="costa">391.00</p>
+			  <p><input type="button" value="Add" onclick = "add1('pricea', 'ama', 391)"/> <input type="button" value="Remove" onclick = "sub1('pricea', 'ama', 391)"/></p>
+			</div>
+			<div class="column33">
+				<img src="book.jpg" alt="Denim Jeans"  width="100" height="100">
+			  <h2>A Thousand Splendid Suns - Khalid Hosseini</h2>
+			  <p class="price" id="costb">284.00</p>
+			  <p><input type="button" value="Add" onclick = "add1('priceb', 'amb', 284)"/> <input type="button" value="Remove" onclick = "sub1('priceb', 'amb', 284)"></p>
+			</div>
+			<div class="column33">
+				<img src="book.jpg" alt="Denim Jeans"  width="100" height="100">
+			  <h2>The Economics of Small Things Paperback</h2>
+			  <p class="price" id="costc">278.07</p>
+			  <p><input type="button" value="Add" onclick = "add1('pricec', 'amc', 278.07)"/> <input type="button" value="Remove" onclick = "sub1('pricec','amc', 278.07)"></p>
+			</div>
+		</div>
+		</center>
+	</div>
+	<br/><br/>
+	<div class="container-fluid bg-1 text-center about" >
+	<table  border=1 style="vertical-align: center; margin-left:22vw" >
+		<thead >
+			<tr>
+				<th>Title</th>
+				<th>ISBN</th>
+				<th>Cost</th>
+				<th>Quantity</th>
+				<th>Amount</th>
+			</tr>
+		</thead>
+			<tr>
+				<td>My Sister's Keeper</td>
+				<td>978-1444754346</td>
+				<td>391.00</td>
+				<td><input type='text' id  = "pricea" value='0'></td>
+				<td><input type='text' id  = "ama" value='0'></td>
+			</tr>
+			<tr>
+				<td>A Thousand Splendid Suns</td>
+				<td>978-1408844441</td>
+				<td>284.00</td>
+				<td><input type='text' id  = "priceb" value='0'></td>
+				<td><input type='text' id  = "amb" value='0'></td>
+			</tr>
+			<tr>
+				<td>My Sister's Keeper</td>
+				<td>978-1444754346</td>
+				<td>391.00</td>
+				<td><input type='text' id  = "pricec" value='0'></td>
+				<td><input type='text' id  = "amc" value='0'></td>
+			</tr>
+			<th colspan=5>Total =<input type="text" value="0" id='total'/></th>
+	</table>
+</div>
+<script>
+	
+</script>
+</body>
+</html>
