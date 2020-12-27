@@ -1,0 +1,220 @@
+1)	CREATE TABLE AND DISPLAY SCHEMA
+CODE:
+CREATE TABLE IF NOT EXISTS `admin` (
+  `username` varchar(10) NOT NULL,
+  `password` varchar(10) NOT NULL,
+  PRIMARY KEY (`username`),
+  UNIQUE KEY `password` (`password`)
+);
+DESCRIBE admin;
+
+OUTPUT:
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| username | varchar(10) | NO   | PRI | NULL    |       |
+| password | varchar(10) | NO   | UNI | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+
+CODE:
+CREATE TABLE IF NOT EXISTS `client` (
+  `username` varchar(10) NOT NULL DEFAULT '',
+  `password` varchar(10) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `emailid` varchar(30) NOT NULL,
+  `mobile` varchar(20) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `city` varchar(10) NOT NULL,
+  `country` varchar(10) NOT NULL,
+  PRIMARY KEY (`username`)
+);
+DESCRIBE client;
+
+OUTPUT:
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| username | varchar(10) | NO   | PRI |         |       |
+| password | varchar(10) | NO   |     | NULL    |       |
+| name     | varchar(30) | NO   |     | NULL    |       |
+| emailid  | varchar(30) | NO   |     | NULL    |       |
+| mobile   | varchar(20) | NO   |     | NULL    |       |
+| address  | varchar(50) | NO   |     | NULL    |       |
+| city     | varchar(10) | NO   |     | NULL    |       |
+| country  | varchar(10) | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+
+CODE:
+CREATE TABLE IF NOT EXISTS `courier_table` (
+  `cid` int(5) NOT NULL AUTO_INCREMENT,
+  `orig` varchar(20) NOT NULL,
+  `dest` varchar(20) NOT NULL,
+  `sname` varchar(20) NOT NULL,
+  `rname` varchar(20) NOT NULL,
+  `radd` varchar(50) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `rate` float NOT NULL,
+  `mode` varchar(10) NOT NULL,
+  `status` varchar(20) NOT NULL DEFAULT 'Loaded',
+  PRIMARY KEY (`cid`)
+);
+DESCRIBE courier_table;
+
+OUTPUT:
++--------+-------------+------+-----+-------------------+----------------+
+| Field  | Type        | Null | Key | Default           | Extra          |
++--------+-------------+------+-----+-------------------+----------------+
+| cid    | int(5)      | NO   | PRI | NULL              | auto_increment |
+| orig   | varchar(20) | NO   |     | NULL              |                |
+| dest   | varchar(20) | NO   |     | NULL              |                |
+| sname  | varchar(20) | NO   |     | NULL              |                |
+| rname  | varchar(20) | NO   |     | NULL              |                |
+| radd   | varchar(50) | NO   |     | NULL              |                |
+| date   | timestamp   | NO   |     | CURRENT_TIMESTAMP |                |
+| rate   | float       | NO   |     | NULL              |                |
+| mode   | varchar(10) | NO   |     | NULL              |                |
+| status | varchar(20) | NO   |     | Loaded            |                |
++--------+-------------+------+-----+-------------------+----------------+
+
+CODE:
+CREATE TABLE IF NOT EXISTS `employee` (
+  `username` varchar(10) NOT NULL,
+  `password` varchar(10) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `emailid` varchar(30) NOT NULL,
+  `mobile` varchar(30) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `city` varchar(10) NOT NULL,
+  `country` varchar(10) NOT NULL,
+  PRIMARY KEY (`username`)
+);
+DESCRIBE employee;
+
+OUTPUT:
+   +----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| username | varchar(10) | NO   | PRI | NULL    |       |
+| password | varchar(10) | NO   |     | NULL    |       |
+| name     | varchar(30) | NO   |     | NULL    |       |
+| emailid  | varchar(30) | NO   |     | NULL    |       |
+| mobile   | varchar(30) | NO   |     | NULL    |       |
+| address  | varchar(50) | NO   |     | NULL    |       |
+| city     | varchar(10) | NO   |     | NULL    |       |
+| country  | varchar(10) | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+
+2)	INSERT ELEMENTS INTO TABLE AND DISPLAY DATA
+CODE:
+INSERT INTO `admin` (`username`, `password`) VALUES
+('admin', 'admin');
+SELECT* FROM admin;
+
+OUTPUT:
++----------+----------+
+| username | password |
++----------+----------+
+| admin    | admin    |
++----------+----------+
+
+CODE: 
+INSERT INTO `client` (`username`, `password`, `name`, `emailid`, `mobile`, `address`, `city`, `country`) VALUES
+('ameet', 'ameet', 'Ameet Pradhan', 'jimmy.4244@gmail.com', '9542033378', 'Chandrasekharpur', 'Bhubaneswa', 'India'),
+('ritu', 'ritu', 'Ritu Panda', 'ritu.panda94@gmail.com', '8658443936', 'B - 230, CVR Hall of Residence, NIT Rourkela', 'Rourkela', 'India'),
+('sushovan', 'sushovan', 'Sushovan Das', 'das.susho1@gmail.com', '9658734984', 'B-257, Homi Bhabha Hall of Residence, NIT Rourkela', 'Rourkela', 'India'),
+('om', 'om', 'Om Prakash Acharya', 'omtennislover@gmail.com', '9777889833', 'B-256, Homi Bhabha Hall of Residence, NIT Rourkela', 'Rourkela', 'India');
+SELECT* from client;
+
+OUTPUT:
++----------+----------+--------------------+-------------------------+------------+----------------------------------------------------+------------+---------+
+| username | password | name               | emailid                 | mobile     | address                                            | city       | country |
++----------+----------+--------------------+-------------------------+------------+----------------------------------------------------+------------+---------+
+| ameet    | ameet    | Ameet Pradhan      | jimmy.4244@gmail.com    | 9542033378 | Chandrasekharpur                                   | Bhubaneswa | India   |
+| ritu     | ritu     | Ritu Panda         | ritu.panda94@gmail.com  | 8658443936 | B - 230, CVR Hall of Residence, NIT Rourkela       | Rourkela   | India   |
+| sushovan | sushovan | Sushovan Das       | das.susho1@gmail.com    | 9658734984 | B-257, Homi Bhabha Hall of Residence, NIT Rourkela | Rourkela   | India   |
+| om       | om       | Om Prakash Acharya | omtennislover@gmail.com | 9777889833 | B-256, Homi Bhabha Hall of Residence, NIT Rourkela | Rourkela   | India   |
++----------+----------+--------------------+-------------------------+------------+----------------------------------------------------+------------+---------+
+
+CODE: 
+INSERT INTO `courier_table` (`cid`, `orig`, `dest`, `sname`, `rname`, `radd`, `date`, `rate`, `mode`, `status`) VALUES
+(19, 'Rourkela', 'Bhubaneswar', 'Anmol', 'Sudhanshu', 'Infocity', '2013-04-14 17:07:01', 100, 'surface', 'In Transit'),
+(18, 'Lucknow', 'Berhampur', 'Manu', 'Swetaswini', 'Hill Patna', '2013-04-14 17:06:00', 2500, 'surface', 'In Transit'),
+(17, 'Rourkela', 'Lucknow', 'Rohit', 'Ritu', 'Gomti Nagar', '2013-04-14 17:04:55', 1600, 'surface', 'Loaded'),
+(16, 'Rourkela', 'Rourkela', 'Rasesh', 'Khirod', 'NIT Rourkela', '2013-04-14 17:03:28', 100, 'surface', 'Delivered'),
+(15, 'Rourkela', 'Bangalore', 'Shivanee', 'Rohan', 'Indiranagar', '2013-04-14 17:02:36', 420, 'air', 'Delivered'),
+(20, 'Rourkela', 'Rourkela', 'Swati', 'Ravi', 'NIT Rourkela', '2013-04-14 17:07:26', 400, 'surface', 'In Transit'),
+(21, 'Rourkela', 'Bangalore', 'Ganesh', 'Sambit', 'Indira Nagar', '2013-04-14 17:07:55', 280, 'air', 'Loaded'),
+(22, 'Rourkela', 'Kandy', 'Sushovan', 'Aditi', 'Kandy, Sri Lanka', '2013-04-14 17:43:30', 400, 'water', 'In Transit'),
+(23, 'Bangalore', 'Bhubaneswar', 'Aditya', 'Chetan', 'Infocity', '2013-04-14 18:06:28', 70, 'air', 'Loaded'),
+(26, 'New Delhi', 'Kolkata', 'Navin', 'Sneha', 'Sealdah', '2013-04-15 09:23:41', 400, 'water', 'Loaded'),
+(28, 'Bangalore', 'Rourkela', 'Manu', 'Sourav', 'Udit Nagar', '2013-04-19 15:21:09', 40, 'air', 'In Transit'),
+(29, 'Lucknow', 'Mumbai', 'Om', 'Uday', 'Dadar', '2014-03-14 10:00:03', 500, 'air', 'Loaded'),
+(30, 'Sky', 'New York', 'Nick Fury', 'Tony Stark', 'Top Floor, Stark Tower', '2014-04-05 09:45:16', 21000, 'air', 'Loaded');
+SELECT* from courier_table;
+
+OUTPUT:
++----------+----------+--------------------+-------------------------+------------+----------------------------------------------------+------------+---------+
+| username | password | name               | emailid                 | mobile     | address                                            | city       | country |
++----------+----------+--------------------+-------------------------+------------+----------------------------------------------------+------------+---------+
+| ameet    | ameet    | Ameet Pradhan      | jimmy.4244@gmail.com    | 9542033378 | Chandrasekharpur                                   | Bhubaneswa | India   |
+| ritu     | ritu     | Ritu Panda         | ritu.panda94@gmail.com  | 8658443936 | B - 230, CVR Hall of Residence, NIT Rourkela       | Rourkela   | India   |
+| sushovan | sushovan | Sushovan Das       | das.susho1@gmail.com    | 9658734984 | B-257, Homi Bhabha Hall of Residence, NIT Rourkela | Rourkela   | India   |
+| om       | om       | Om Prakash Acharya | omtennislover@gmail.com | 9777889833 | B-256, Homi Bhabha Hall of Residence, NIT Rourkela | Rourkela   | India   |
++----------+----------+--------------------+-------------------------+------------+----------------------------------------------------+------------+---------+
+
+CODE: 
+INSERT INTO `employee` (`username`, `password`, `name`, `emailid`, `mobile`, `address`, `city`, `country`) VALUES
+('rasesh', 'rasesh', 'Rasesh Rout', 'raseshrout@gmail.com', '9439344276', 'B-3, M.V. Hall of Residence, NIT Rourkela', 'Rourkela', 'India'),
+('rohit', 'rohit', 'Rohit Rajat Mohanty', 'rohit.r.mohanty@gmail.com', '8598000238', 'C-1, M.V. Hall of Residence, NIT Rourkela', 'Rourkela', 'India'),
+('menka', 'meenakshi', 'Menka Mehta', 'menkat@gmail.com', '9123444276', 'A-3, Lajpat Nagar, New Delhi', 'New Delhi', 'India');
+SELECT* from employee;
+
+OUTPUT:
++----------+----------+---------------------+---------------------------+------------+----------------------------------------------------+----------+---------+
+| username | password | name                | emailid                   | mobile     | address                                            | city     | country |
++----------+----------+---------------------+---------------------------+------------+----------------------------------------------------+----------+---------+
+| rasesh   | rasesh   | Rasesh Rout         | raseshrout@gmail.com      | 9439344276 | B-3, M.V. Hall of Residence, NIT Rourkela          | Rourkela | India   |
+| rohit    | rohit    | Rohit Rajat Mohanty | rohit.r.mohanty@gmail.com | 8598000238 | C-1, M.V. Hall of Residence, NIT Rourkela          | Rourkela | India   |
+| manu     | manu     | Siddharth Manu      | siddharthmanu94@gmail.com | 7894428180 | B-256, Homi Bhabha Hall of Residence, NIT Rourkela | Rourkela | India   |
++----------+----------+---------------------+---------------------------+------------+----------------------------------------------------+----------+---------+
+
+3)	DELETE ROW
+CODE: 
+delete from employee where username='manu';
+select* from employee;
+
+OUTPUT:
++----------+----------+---------------------+---------------------------+------------+-------------------------------------------+----------+---------+
+| username | password | name                | emailid                   | mobile     | address                                   | city     | country |
++----------+----------+---------------------+---------------------------+------------+-------------------------------------------+----------+---------+
+| rasesh   | rasesh   | Rasesh Rout         | raseshrout@gmail.com      | 9439344276 | B-3, M.V. Hall of Residence, NIT Rourkela | Rourkela | India   |
+| rohit    | rohit    | Rohit Rajat Mohanty | rohit.r.mohanty@gmail.com | 8598000238 | C-1, M.V. Hall of Residence, NIT Rourkela | Rourkela | India   |
++----------+----------+---------------------+---------------------------+------------+-------------------------------------------+----------+---------+
+
+4)	INSERT SINGLE ROW
+CODE:
+INSERT INTO `employee` (`username`, `password`, `name`, `emailid`, `mobile`, `address`, `city`, `country`) VALUES('menka', 'menka', 'Menka Mehta', 'menkat@gmail.com', '9123444276', 'A-3, Lajpat Nagar, New Delhi', 'New Delhi', 'India');
+select* from employee;
+
+OUTPUT:
++----------+----------+---------------------+---------------------------+------------+-------------------------------------------+-----------+---------+
+| username | password | name                | emailid                   | mobile     | address                                   | city      | country |
++----------+----------+---------------------+---------------------------+------------+-------------------------------------------+-----------+---------+
+| rasesh   | rasesh   | Rasesh Rout         | raseshrout@gmail.com      | 9439344276 | B-3, M.V. Hall of Residence, NIT Rourkela | Rourkela  | India   |
+| rohit    | rohit    | Rohit Rajat Mohanty | rohit.r.mohanty@gmail.com | 8598000238 | C-1, M.V. Hall of Residence, NIT Rourkela | Rourkela  | India   |
+| menka    | menka    | Menka Mehta         | menkat@gmail.com          | 9123444276 | A-3, Lajpat Nagar, New Delhi              | New Delhi | India   |
++----------+----------+---------------------+---------------------------+------------+-------------------------------------------+-----------+---------+
+
+5)	UPDATE VALUES
+CODE:
+update employee set password='meenakshi' where username='menka';
+select* from employee;
+
+OUTPUT:
++----------+-----------+---------------------+---------------------------+------------+-------------------------------------------+-----------+---------+
+| username | password  | name                | emailid                   | mobile     | address                                   | city      | country |
++----------+-----------+---------------------+---------------------------+------------+-------------------------------------------+-----------+---------+
+| rasesh   | rasesh    | Rasesh Rout         | raseshrout@gmail.com      | 9439344276 | B-3, M.V. Hall of Residence, NIT Rourkela | Rourkela  | India   |
+| rohit    | rohit     | Rohit Rajat Mohanty | rohit.r.mohanty@gmail.com | 8598000238 | C-1, M.V. Hall of Residence, NIT Rourkela | Rourkela  | India   |
+| menka    | meenakshi | Menka Mehta         | menkat@gmail.com          | 9123444276 | A-3, Lajpat Nagar, New Delhi              | New Delhi | India   |
++----------+-----------+---------------------+---------------------------+------------+-------------------------------------------+-----------+---------+
