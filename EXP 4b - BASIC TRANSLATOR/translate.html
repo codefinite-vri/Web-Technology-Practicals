@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <script data-require="angular.js@1.3.8" data-semver="1.3.8" src="https://code.angularjs.org/1.3.8/angular.js"></script>
+    <script data-require="angular-translate@*" data-semver="2.5.0" src="https://cdn.rawgit.com/angular-translate/bower-angular-translate/2.5.0/angular-translate.js"></script>
+    <script src="translate.js"></script>
+    <title>Happy Birthday Translator</title>
+  </head>
+  <body>
+    <center>
+    <div ng-controller="translateController">
+      <h1>Happy Birthday Translator</h1>
+      <div>
+        <button ng-click="changeLanguage('en')">English</button>
+        <button ng-click="changeLanguage('sp')">Spanish</button>
+        <button ng-click="changeLanguage('de')">German</button>
+      </div>
+      <h2>{{'language' | translate}}</h2>      
+      <p>{{'greeting' | translate}}</p>      
+    </div>
+  </center>
+  </body>
+</html>
